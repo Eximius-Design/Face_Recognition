@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import cv2
+import matplotlib.pyplot as plt
 
 
 class Detection:
@@ -17,7 +18,7 @@ class Detection:
                 graph_def = tf.GraphDef.FromString(f.read())
                 tf.import_graph_def(graph_def, name='')
         self.graph = graph
-        config = tf.ConfigProto()
+        config = tf.ConfigProto(allow_soft_placement=True,intra_op_parallelism_threads=4,inter_op_parallelism_threads=4)
         config.gpu_options.allow_growth = True
         self.sess = tf.Session(graph=graph, config=config)
         print("Detection Model Graph Initialized")
@@ -34,4 +35,7 @@ class Detection:
                   self.graph.get_operation_by_name('landmarks').outputs[0],
                   self.graph.get_operation_by_name('box').outputs[0]]
         prob, landmarks, box = self.sess.run(fetches, feeds)
+        if len(box) == 0:
+            plt.imshow(img)
+            plt.show()
         return box, prob, landmarks
