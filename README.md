@@ -1,4 +1,4 @@
-# Face_Recognition_on_videos
+# Face_Recognition_for_videos
 This repository is an inferencing implementation of FaceNet(Inception-ResNet) which also uses MTCNN for detection on still images as well as Videos.
 FaceNet used here is not from the original paper, it is a modified structure which uses Inception-ResNet as the backbone network and softmax as the loss.
 
