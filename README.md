@@ -1,4 +1,4 @@
-# Face_Recognition_for_videos
+# Face Recognition for videos
 This repository is an inferencing implementation of FaceNet(Inception-ResNet) which also uses MTCNN for detection on still images as well as Videos.
 FaceNet used here is not from the original paper, it is a modified structure which uses Inception-ResNet as the backbone network and softmax as the loss.
 
@@ -24,7 +24,9 @@ FaceNet used here is not from the original paper, it is a modified structure whi
 
 ## HOW TO RUN?
 
-* Install the required libraries from requirements.txt using the command **pip install requirements.txt** 
-* Now open the ipynb located at **Face_Recognition/src/TRAIN_CLASSIFIER.ipynb** and run all the cells.
-* Open the ipynb  located at **Face_Recognition/src/MAIN_VIDEO.ipynb** and run the cells
+* Install the required libraries from requirements.txt using the command **pip install requirements.txt**
+* Prepare and Place the data in the above specified format
+* (optional)Augment the data using the augmentation code inside **Face_Recognition/augmentation/keras_folder_images_augmentation.ipynb**
+* Now open the ipynb located at **Face_Recognition/src/TRAIN_CLASSIFIER.ipynb** and run all the cells by folowing the comments.
+* Open the ipynb  located at **Face_Recognition/src/MAIN_VIDEO.ipynb** and run all the cells by folowing the comments.
 * Find the output video at **Face_Recognition/Outputs/Detection_Recognition_outputs/**
