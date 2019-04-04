@@ -16,6 +16,9 @@ def classify_image(output_classifier_path ,detection , recognition ,test_image_i
         face = np.copy(rgb_image[box[0]:box[2] , box[1]:box[3]])
         processed_face = preprocess.prewhiten(face)
         emb = recognition.recognize(processed_face)
+        predictions_proba = 0.1
         predictions_proba = model.predict_proba(emb)
         predicted_name = model.predict(emb)
         print(predicted_name, "   ", predictions_proba)
+        print(max(predictions_proba[0]))
+        print(np.argmax(predictions_proba[0]))
